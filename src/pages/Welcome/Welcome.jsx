@@ -1,88 +1,132 @@
-import React from 'react'
-import { Box, Button, Typography } from "@mui/material";
-import { styled } from '@mui/system';
-import { Container } from '@mui/system';
-import CustomButton from '../../components/CustomButton/CustomButton';
-import welcome from '../../assets/welcome.png';
-
+import React from "react";
+import { Box, Typography, Container } from "@mui/material";
+import CustomButton from "../../components/CustomButton/CustomButton";
+import welcome from "../../assets/welcome.png"; // Ensure the path to the image is correct
 
 const Welcome = () => {
-
-    const CustomBox = styled(Box)(({ theme }) => ({
-        display: 'flex',
-        justifyContent: 'center',
-        gap: theme.spacing(5),
-        marginTop: theme.spacing(3),
-
-        [theme.breakpoints.down("md")]: {
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center"
-        },
-    }));
-    const Title = styled(Typography)(({ theme }) => ({
-        fontSize: '64px',
-        color: '#fff',
-        fontWeight: 'bold',
-        marginTop: theme.spacing(4, 0, 4, 0),
-        [theme.breakpoints.down("sm")]: {
-            fontSize: '40px'
-        },
-    }));
-
-
-
-
-return (
-    <Box sx={{backgroundColor:'#FED801',minHeight:'80vh'}}>
-        <Container>
-            <CustomBox>
-                <Box sx={{ flex: "1" }}>
-                    <Typography
-                        variant='body2'
-                        sx={{
-                            fontSize: '18px',
-                            color: '#687690',
-                            fontWeight: '500',
-                            mt: '10',
-                            mb: '4',
-                        }}
-                    >
-                        Welcome to TechFlix Restaurant
-                    </Typography>
-                    <Title variant='h1'>
-                        Discover a place where you'll love to eat
-                    </Title>
-                    <Typography
-                        variant='body2'
-                        sx={{
-                            fontSize: '18px',
-                            color: '#5A6473',
-                            mb: '4',
-                        }}
-                    >
-                        Immerse youself in the elagent ambiance as your savor each bite, accombined by our extensive selection of hand picked wines and carefully curated cocktail
-                    </Typography>
-                    <CustomButton
-                        backgroundColor='#0F1B4C'
-                        color='#fff'
-                        buttonText='More About Us'
-                        welcomeBtn={true}
-                    />
-                </Box>
-                <Box sx={{ flex: "1.25" }}>
-                    <img
-                        src={welcome}
-                        alt="welcome"
-                        style={{ maxWidth: '100%', marginBottom: '2rem' }}
-                    />
-
-                </Box>
-
-            </CustomBox >
-        </Container>
+  return (
+    <Box
+      sx={{
+        backgroundImage: `url(${welcome})`, // Set the background image
+        backgroundSize: "cover", // Ensure the image covers the entire container
+        backgroundPosition: "center", // Center the background image
+        backgroundRepeat: "no-repeat", // Do not repeat the background image
+        minHeight: "80vh", // Set the minimum height of the container
+        pt: 4, // Padding top
+        pb: 4, // Padding bottom
+        color: "#fff", // Default text color for better readability on the background
+      }}
+    >
+      <Container>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: { xs: "center", md: "flex-start" },
+            justifyContent: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
+            height: "100%",
+            gap: 2, // Add gap between the text box and the button
+            pt: 6,
+          }}
+        >
+          <Box
+            sx={{
+              borderRadius: "8px", // Rounded corners
+              p: { xs: 4, md: 6 }, // Responsive padding inside the box
+              maxWidth: { xs: "100%", md: "800px" }, // Increased max-width for larger screens
+              width: "100%", // Ensure the box takes full available width
+              boxShadow: 0, // Optional: Adds shadow for better visibility
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center", // Center text inside the box
+              textAlign: "center", // Center text inside the box
+              position: { xs: "relative", md: "relative" }, // Relative positioning for all screens
+              left: { xs: 0, md: "-120px" }, // Move box to the left on medium screens and up
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: { xs: '22px', md: '24px' }, // Responsive font size
+                fontWeight: "500",
+                color: "#FFFFFF",
+                mb: 2, // Margin-bottom for spacing
+              }}
+            >
+              Welcome to Q1B Health Care
+            </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: '70px', md: '90px' }, // Responsive font size
+                color: "#632D8A",
+                fontWeight: "bold",
+                mb: 1, // Margin-bottom for spacing
+              }}
+            >
+              We Care About
+            </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                fontSize: { xs: '70px', md: '90px' }, // Responsive font size
+                color: "#40B24E",
+                fontWeight: "900", // Increased font weight for more emphasis
+                mb: 2, // Margin-bottom for spacing
+                lineHeight: 1, // Adjusted line height for better text alignment
+              }}
+            >
+              Your Health
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: { xs: "14px", md: "18px" }, // Responsive font size
+                color: "#000000",
+                mb: 2, // Margin-bottom for spacing
+                lineHeight: 1.5,
+              }}
+            >
+              Discover expert wellness at Q1B Health, where our commitment{" "}
+              <br />
+              ensures top-notch care for you and your loved ones.
+              <br />
+              Choose from{" "}
+              <Typography
+                component="span"
+                sx={{
+                    fontSize: { xs: '22px', md: '24px' }, 
+                  color: "#632D8A", // Color for "offline" text
+                  fontWeight: "bold", // Make the text bold
+                }}
+              >
+                offline
+              </Typography>
+              {" "}and{" "}
+              <Typography
+                component="span"
+                sx={{
+                    fontSize: { xs: '22px', md: '24px' }, 
+                  color: "#40B24E", // Color for "online" text
+                  fontWeight: "bold", // Make the text bold
+                }}
+              >
+               {" "} online{" "}
+              </Typography>
+                services that suit your needs.
+            </Typography>
+            <CustomButton
+              backgroundColor="#40B24E"
+              color="#fff"
+              buttonText="Book an Appointment "
+              welcomeBtn={true}
+            />
+          </Box>
+        </Box>
+      </Container>
     </Box>
-)
+  );
 };
 
-export default Welcome
+export default Welcome;

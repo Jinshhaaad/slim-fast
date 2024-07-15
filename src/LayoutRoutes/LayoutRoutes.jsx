@@ -3,10 +3,12 @@ import { BrowserRouter as Router,Route,Routes } from 'react-router-dom'
 import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Home from '../pages/Home/Home'
-import Dishes from '../pages/Dishes/Dishes'
-import Booking from '../pages/Booking/Booking'
 import About from '../pages/About/About'
 import NotFound from '../pages/NotFound/NotFound'
+import Services from '../pages/Services/Services'
+import Doctors from '../pages/Doctors/Doctors'
+import Contact from '../pages/Contact/Contact'
+import Blog from '../pages/Blog/Blog'
 
 function LayoutRoutes() {
   return (
@@ -14,10 +16,12 @@ function LayoutRoutes() {
     <Header/>
     <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/restaurant-react-web' element={<Home/>} />
-        <Route path='/dishes' element={<Dishes/>} />
-        <Route path='/services' element={<Booking/>} />
-        <Route path='/about' element={<About/>} />
+        <Route path='/q1b-healthcare' element={<Home/>} />
+         <Route path='/About' element={<About/>} />
+         <Route path='/Services' element={<Services/>} />
+       <Route path='/Doctors' element={<Doctors/>} />
+        <Route path='/Blogs' element={<Blog/>} />
+        <Route path='/Contact' element={<Contact/>} />  
         <Route path='/*' element={<NotFound/>} />
 
 

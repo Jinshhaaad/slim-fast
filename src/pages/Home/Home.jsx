@@ -1,22 +1,29 @@
 import React from 'react'
 import Welcome from '../Welcome/Welcome'
 import Partner from '../Partner/Partner'
-import Booking from '../Booking/Booking';
-import Dishes from '../Dishes/Dishes';
-import Ambience from '../Ambience/Ambience';
-import Delivery from '../Delivery/Delivery';
-import About from '../About/About';
+import Aboutus from '../Aboutus/Aboutus';
+import Services from '../Services/Services';
+import Doctors from '../Doctors/Doctors';
+import Testimonials from '../Testimonial /Testimonial ';
+import Online from '../Online/Online'
+import Blogs from '../Blogs/Blogs';
+import Booking from '../Booking/Booking'
+
+
 
 function Home() {
   return (
     <>
     <Welcome/>
     <Partner/>
+    <Aboutus/>
+    <Services/>
+    <Doctors/>
+    <Testimonials/>
     <Booking/>
-    <Dishes/>
-    <Ambience/>
-    <Delivery/>
-    <About/>
+    <Blogs/>
+   <Online/>
+   
     
     </>
   )

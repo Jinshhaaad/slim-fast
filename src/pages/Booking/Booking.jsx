@@ -1,204 +1,125 @@
-import React from 'react'
-import { Box, Typography } from "@mui/material";
-import { styled } from "@mui/system"
+import React, { useRef } from 'react';
+import { Box, Typography, TextField, Button } from '@mui/material';
+import bookingimg from '../../assets/Bookingimg.png';
+import emailjs from '@emailjs/browser'; // Importing emailjs-com instead of @emailjs/browser
 
-import buyIcon from "../../assets/buy_icon.png";
-import sellIcon from "../../assets/sell_icon.png";
-import rentIcon from "../../assets/sell_icon.png";
+const ContactSection = () => {
+  const form = useRef();
 
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import CustomButton from '../../components/CustomButton/CustomButton';
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-
-
-
-function Booking() {
-
-  const CustomBox = styled(Box)(({ theme }) => ({
-    width: '30%',
-    [theme.breakpoints.down('md')]: {
-      width: '85%'
-    },
-  }));
-
-  const GuidesBox = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'space-around',
-    width: '70%',
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(5),
-    [theme.breakpoints.down('md')]: {
-      width: '100%'
-    },
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: "0",
-      flexDirection: 'column',
-    },
-
-  }));
-  const GuideBox = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginTop: theme.spacing(5),
-    [theme.breakpoints.down('sm')]: {
-      margin: theme.spacing(2, 0, 2, 0),
-    },
-  }));
-
+    emailjs.sendForm('service_26guc7r', 'template_4pw4kbg', form.current, 'qT9viRKxADeWEIwS4')
+      .then((result) => {
+        console.log('Message successfully sent!', result.text);
+      }, (error) => {
+        console.error('Email sending failed:', error.text);
+      });
+  };
 
   return (
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: { xs: 'column', md: 'row' },
         justifyContent: 'center',
-        alignItems: 'center',
-        padding: '40px'
+        padding: '20px',
       }}
     >
-      <div
+      {/* Appointment Form Box */}
+      <Box
         sx={{
-          width: '5%',
-          height: '5px',
-          backgroundColor: '#000339',
-          margin: '0 auto'
+          width: '100%',
+          maxWidth: '600px',
+          backgroundColor: '#E4E4E4',
+          borderRadius: '45px',
+          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
+          padding: '30px',
+          marginBottom: { xs: '20px', md: '0' },
+          marginRight: { xs: '0', md: '20px' },
         }}
       >
-      </div>
-      <Typography
-        variant='h3'
-        sx={{
-          fontSize: '35px', fontWeight: 'bold', color: '#000339', my: 3
-        }}
-      >
-        How to Book?
-      </Typography>
-      <CustomBox>
         <Typography
+          variant='body2'
           sx={{
-            fontSize: '16px', fontWeight: '500', color: '#5A6473', textAlign: 'center',
+            fontSize: '30px',
+            fontWeight: 'bold',
+            color: '#000000',
+            textAlign: 'center',
+            marginBottom: '20px',
           }}
         >
-          Everything you need to know when you book for advance slot
+          Make An <span style={{ color: '#40B24E' }}>Appointment</span>
         </Typography>
-      </CustomBox>
-      <GuidesBox>
-        <GuideBox>
-          <img src={buyIcon} alt='buyicon' />
-          <Typography
-            variant='body2'
+        <form ref={form} onSubmit={sendEmail}>
+          {/* Name */}
+          <TextField
+            label="Name"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            name="from_name"
+            required
+          />
+          {/* Email */}
+          <TextField
+            label="Email"
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            type="email"
+            name="to_name"
+            required
+          />
+          {/* Message */}
+          <TextField
+            label="Message"
+            variant="outlined"
+            multiline
+            rows={4}
+            fullWidth
+            margin="normal"
+            name="message"
+            required
+          />
+          {/* Submit Button */}
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="large"
+            fullWidth
             sx={{
-              fontWeight: '500',
-              fontSize: '20px',
-              color: '#3B3c45',
-              my: 1,
+              marginTop: '20px',
+              borderRadius: '8px',
+              backgroundColor: '#4CAF50',
+              '&:hover': { backgroundColor: '#388E3C' },
             }}
           >
-            Order Guides
-          </Typography>
-          <Box
-            sx={{
-              cursor: 'pointer',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <Typography
-              variant='body2'
-              sx={{
-                fontWeight: 'bold',
-                fontSize: '14px',
-                color: '#0689FF',
-              }}
-            >
-              How to Order
-            </Typography>
-            <ArrowRightAltIcon style={{ color: "#0689FF" }} />
-          </Box>
-        </GuideBox>
-
-        <GuideBox>
-          <img src={rentIcon} alt='renticon' />
-          <Typography
-            variant='body2'
-            sx={{
-              fontWeight: '500',
-              fontSize: '20px',
-              color: '#3B3c45',
-              my: 1,
-            }}
-          >
-            Booking Guides
-          </Typography>
-          <Box
-            sx={{
-              cursor: 'pointer',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <Typography
-              variant='body2'
-              sx={{
-                fontWeight: 'bold',
-                fontSize: '14px',
-                color: '#0689FF',
-              }}
-            >
-              How to Order
-            </Typography>
-            <ArrowRightAltIcon style={{ color: "#0689FF" }} />
-          </Box>
-        </GuideBox>
-
-        <GuideBox>
-          <img src={sellIcon} alt='sellicon' />
-          <Typography
-            variant='body2'
-            sx={{
-              fontWeight: '500',
-              fontSize: '20px',
-              color: '#3B3c45',
-              my: 1,
-            }}
-          >
-            Payment Guides
-          </Typography>
-          <Box
-            sx={{
-              cursor: 'pointer',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <Typography
-              variant='body2'
-              sx={{
-                fontWeight: 'bold',
-                fontSize: '14px',
-                color: '#0689FF',
-              }}
-            >
-              How to Order
-            </Typography>
-            <ArrowRightAltIcon style={{ color: "#0689FF" }} />
-          </Box>
-        </GuideBox>
-
-      </GuidesBox>
-      <CustomButton
-        backgroundColor="#0F1B4C"
-        color="#fff"
-        buttonText='See Full Guides'
-        guideBtn={true}
-      />
-
+            Submit
+          </Button>
+        </form>
+      </Box>
+      {/* Image Box */}
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: '600px',
+          backgroundColor: '#fff',
+          padding: '30px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <img
+          src={bookingimg}
+          alt="Placeholder Image"
+          style={{ width: '100%', maxWidth: '500px', marginBottom: '20px' }}
+        />
+      </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Booking
+export default ContactSection;
