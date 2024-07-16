@@ -1,10 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled, useTheme } from '@mui/system';
-import aboutImg from '../../assets/Booking.png';
-import aboutimg from '../../assets/aboutimg2.png';
-import AboutImg from '../../assets/aboutimg3.png';
-
+import aboutimg from '../../assets/about222.png';
+import AboutImg from '../../assets/about33.png';
 
 function Aboutus() {
   const theme = useTheme();
@@ -23,14 +21,12 @@ function Aboutus() {
   const LargeBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
-    gap: theme.spacing(4), // Adjust gap between GuideBoxes
+    gap: theme.spacing(1), // Adjust gap between GuideBoxes
     alignItems: 'center',
     width: '100%',
-    // maxWidth: '1200px',
     backgroundColor: '#FFFFFF',
     borderRadius: '10px',
-    // boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-    padding: theme.spacing(5),
+    padding: theme.spacing(5, 3), // Adjust padding (vertical, horizontal)
     [theme.breakpoints.up('sm')]: {
       flexDirection: 'row',
       alignItems: 'flex-start',
@@ -41,12 +37,16 @@ function Aboutus() {
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center', // Align items centered vertically (default)
     textAlign: 'left',
     padding: theme.spacing(2),
     '& img': {
-      maxWidth: '100%',
+      maxWidth: '80%',
       height: 'auto',
+      paddingRight: theme.spacing(0), // Decrease right padding of the image
+    },
+    [theme.breakpoints.up('sm')]: {
+      alignItems: 'flex-start', // Adjust alignment for larger screens
     },
   }));
 
@@ -62,7 +62,7 @@ function Aboutus() {
           marginBottom: theme.spacing(3),
         }}
       >
-        Online Consulting: Expert Care, Anywhere You Are!
+        The Surprising Benefits of Proper Nutrition
       </Typography>
       <div
         style={{
@@ -80,12 +80,15 @@ function Aboutus() {
               fontWeight: '500',
               fontSize: '1.5rem',
               color: '#3B3c45',
-              my: 7,
+              my: 5,
               lineHeight: '1.6',
+              paddingLeft: theme.spacing(4), // Increase left padding here
             }}
           >
-            Embrace a new era of healthcare with our cutting-edge online consulting service. Now, you can access expert medical advice and consultations from the comfort of your home. Our virtual platform ensures that you receive personalized care, making healthcare accessible at your fingertips.
-            Experience the convenience of appointments without boundaries – Q1B Health Care brings our expertise to you, wherever you are.
+            Sustainable weight loss: By understanding the principles of healthy eating and nutrition, you can lose weight in a sustainable and healthy way.<br/>
+            Increased energy levels: Eating a balanced diet that provides your body with the necessary nutrients can help increase energy levels, making it easier to be active.<br/>
+            Improved digestion: Eating a diet rich in fruits, vegetables, and whole grains can help improve digestion and prevent constipation and other digestive issues.<br/>
+            Better mood: Proper nutrition can also have a positive impact on mental health, helping to reduce symptoms of depression and anxiety.<br/>
           </Typography>
         </GuideBox>
         <GuideBox>
@@ -103,7 +106,7 @@ function Aboutus() {
           marginTop: theme.spacing(5), // Adjust top margin for spacing
         }}
       >
-        Medicine Courier Parceling: Your Prescriptions, Delivered to You!
+        Take control of your Health and Lose Weight for good?
       </Typography>
       <LargeBox>
         <GuideBox>
@@ -120,8 +123,9 @@ function Aboutus() {
               lineHeight: '1.6',
             }}
           >
-            Say goodbye to pharmacy queues and medication hassles. Q1B Health Care introduces our exclusive medicine courier parceling service. Once your prescription is issued, we'll ensure your medications are promptly delivered to your doorstep. This streamlined service not only saves you time but also guarantees that you have uninterrupted access to your medications.
-             Your health is our priority, and we're dedicated to making the entire process as convenient as possible
+            Chronic weight-related diseases are at an epidemic level: High blood pressure, high cholesterol, heart disease, stroke, type 2 diabetes,
+            joint problems, breathing problems, low self-esteem, depression, and even cancer. Better Manage (and Reduce the Risk) of Weight-Related Diseases through proper diet and nutrition.
+            Proper nutrition not only aids in disease prevention but also enhances overall well-being and longevity, ensuring a healthier future for individuals and communities alike.
           </Typography>
         </GuideBox>
       </LargeBox>

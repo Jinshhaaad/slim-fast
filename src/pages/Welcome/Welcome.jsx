@@ -1,132 +1,137 @@
-import React from "react";
-import { Box, Typography, Container } from "@mui/material";
-import CustomButton from "../../components/CustomButton/CustomButton";
-import welcome from "../../assets/welcome.png"; // Ensure the path to the image is correct
+import React from 'react';
+import { Box, Typography, Button } from '@mui/material';
+import { styled, useTheme } from '@mui/system';
+import AboutImg from '../../assets/home000.jpg';
 
-const Welcome = () => {
+function Aboutus() {
+  const theme = useTheme();
+
+  // Animation keyframes and styles
+  const styles = {
+    animation: `$fadeInUp .25s ease`,
+    '@keyframes fadeInUp': {
+      '0%': {
+        opacity: 0,
+        transform: 'translateY(20px)',
+      },
+      '100%': {
+        opacity: 1,
+        transform: 'translateY(0)',
+      },
+    },
+  };
+
+  // Styled components
+  const CustomBox = styled(Box)(({ theme }) => ({
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 0, // No padding by default
+    backgroundColor: '#FFFFFF',
+    minHeight: '80vh',
+  }));
+
+  const LargeBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
+    backgroundColor: '#FFFFFF',
+    borderRadius: '10px',
+    padding: theme.spacing(5),
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+    },
+  }));
+
+  const TextContainer = styled(Box)(({ theme }) => ({
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center', // Center align text by default
+    justifyContent: 'center',
+    textAlign: 'center', // Center align text by default
+    padding: 0, // No padding by default
+    ...styles,
+    [theme.breakpoints.up('sm')]: {
+      alignItems: 'flex-start', // Left align text for larger screens
+      textAlign: 'left', // Left align text for larger screens
+      paddingLeft: theme.spacing(15), // Adjusted padding for larger screens
+    },
+  }));
+
+  const ImageContainer = styled(Box)(({ theme }) => ({
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: theme.spacing(2),
+    '& img': {
+      maxWidth: '100%',
+      height: 'auto',
+      animation: `${styles.animation}`,
+      [theme.breakpoints.up('sm')]: {
+        maxWidth: '80%', // Adjusted max width for larger screens
+      },
+    },
+  }));
+
+  const AnimatedTypography = styled(Typography)(({ theme }) => ({
+    fontSize: '3rem',
+    fontWeight: 'bold',
+    color: '#5c994d',
+    textAlign: 'center',
+    marginBottom: theme.spacing(3),
+    ...styles,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2rem', // Adjusted font size for smaller screens
+    },
+  }));
+
+  const BodyTypography = styled(Typography)(({ theme }) => ({
+    fontWeight: '500',
+    fontSize: '1rem', // Adjusted font size for smaller screens
+    color: '#3B3c45',
+    my: 4,
+    lineHeight: '1.6',
+    textAlign: 'justify', // Ensure text justification for better readability
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1.2rem', // Default font size for larger screens
+    },
+  }));
+
+  const ButtonContainer = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center', // Center align items horizontally
+    marginTop: theme.spacing(4), // Adjust spacing above the button
+  }));
+
   return (
-    <Box
-      sx={{
-        backgroundImage: `url(${welcome})`, // Set the background image
-        backgroundSize: "cover", // Ensure the image covers the entire container
-        backgroundPosition: "center", // Center the background image
-        backgroundRepeat: "no-repeat", // Do not repeat the background image
-        minHeight: "80vh", // Set the minimum height of the container
-        pt: 4, // Padding top
-        pb: 4, // Padding bottom
-        color: "#fff", // Default text color for better readability on the background
-      }}
-    >
-      <Container>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            alignItems: { xs: "center", md: "flex-start" },
-            justifyContent: { xs: "center", md: "flex-start" },
-            textAlign: { xs: "center", md: "left" },
-            height: "100%",
-            gap: 2, // Add gap between the text box and the button
-            pt: 6,
-          }}
-        >
-          <Box
-            sx={{
-              borderRadius: "8px", // Rounded corners
-              p: { xs: 4, md: 6 }, // Responsive padding inside the box
-              maxWidth: { xs: "100%", md: "800px" }, // Increased max-width for larger screens
-              width: "100%", // Ensure the box takes full available width
-              boxShadow: 0, // Optional: Adds shadow for better visibility
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center", // Center text inside the box
-              textAlign: "center", // Center text inside the box
-              position: { xs: "relative", md: "relative" }, // Relative positioning for all screens
-              left: { xs: 0, md: "-120px" }, // Move box to the left on medium screens and up
-            }}
-          >
-            <Typography
-              variant="body2"
-              sx={{
-                fontSize: { xs: '22px', md: '24px' }, // Responsive font size
-                fontWeight: "500",
-                color: "#FFFFFF",
-                mb: 2, // Margin-bottom for spacing
-              }}
-            >
-              Welcome to Q1B Health Care
-            </Typography>
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: '70px', md: '90px' }, // Responsive font size
-                color: "#632D8A",
-                fontWeight: "bold",
-                mb: 1, // Margin-bottom for spacing
-              }}
-            >
-              We Care About
-            </Typography>
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: '70px', md: '90px' }, // Responsive font size
-                color: "#40B24E",
-                fontWeight: "900", // Increased font weight for more emphasis
-                mb: 2, // Margin-bottom for spacing
-                lineHeight: 1, // Adjusted line height for better text alignment
-              }}
-            >
-              Your Health
-            </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                fontSize: { xs: "14px", md: "18px" }, // Responsive font size
-                color: "#000000",
-                mb: 2, // Margin-bottom for spacing
-                lineHeight: 1.5,
-              }}
-            >
-              Discover expert wellness at Q1B Health, where our commitment{" "}
-              <br />
-              ensures top-notch care for you and your loved ones.
-              <br />
-              Choose from{" "}
-              <Typography
-                component="span"
-                sx={{
-                    fontSize: { xs: '22px', md: '24px' }, 
-                  color: "#632D8A", // Color for "offline" text
-                  fontWeight: "bold", // Make the text bold
-                }}
-              >
-                offline
-              </Typography>
-              {" "}and{" "}
-              <Typography
-                component="span"
-                sx={{
-                    fontSize: { xs: '22px', md: '24px' }, 
-                  color: "#40B24E", // Color for "online" text
-                  fontWeight: "bold", // Make the text bold
-                }}
-              >
-               {" "} online{" "}
-              </Typography>
-                services that suit your needs.
-            </Typography>
-            <CustomButton
-              backgroundColor="#40B24E"
-              color="#fff"
-              buttonText="Book an Appointment "
-              welcomeBtn={true}
-            />
-          </Box>
-        </Box>
-      </Container>
-    </Box>
+    <CustomBox>
+      <LargeBox>
+        <TextContainer>
+          <AnimatedTypography>
+            Reach Your Weight Loss Goals With <span style={{ color: '#5b974d' }}>SlimFast</span>
+          </AnimatedTypography>
+          <BodyTypography>
+            Your trusted partner for achieving sustainable health and wellness goals. With science-backed programs and personalized plans, we make healthy living effortless. Join us and embark on your journey to a healthier, happier you today. Transform your lifestyle with our expert support and proven strategies.
+          </BodyTypography>
+          <ButtonContainer>
+            <Button variant="contained" style={{ backgroundColor: '#5c994d', color: '#FFFFFF' }}>
+              Start Now
+            </Button>
+          </ButtonContainer>
+        </TextContainer>
+        <ImageContainer>
+          <img src={AboutImg} alt='aboutimg' />
+        </ImageContainer>
+      </LargeBox>
+    </CustomBox>
   );
-};
+}
 
-export default Welcome;
+export default Aboutus;

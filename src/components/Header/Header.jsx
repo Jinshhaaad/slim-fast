@@ -1,14 +1,14 @@
-import { styled } from "@mui/system";
-import { Box, Typography } from "@mui/material";
-import React, { useState } from "react";
-import CustomButton from "../CustomButton/CustomButton";
-import logoImg from "../../assets/logo.png";
+import React, { useState } from 'react';
+import { Box, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+import CustomButton from '../CustomButton/CustomButton';
+import logoImg from '../../assets/logoslimfast-removebg-preview.png';
 
-import MenuIcon from "@mui/icons-material/Menu";
-import FeaturedPlayListIcon from "@mui/icons-material/FeaturedPlayList";
-import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
-import HomeIcon from "@mui/icons-material/Home";
-import ContactsIcon from "@mui/icons-material/Contacts";
+import MenuIcon from '@mui/icons-material/Menu';
+import FeaturedPlayListIcon from '@mui/icons-material/FeaturedPlayList';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
+import HomeIcon from '@mui/icons-material/Home';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import {
   Drawer,
   List,
@@ -16,8 +16,8 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-} from "@mui/material";
-import { useNavigate } from "react-router-dom";
+} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const [mobileMenu, setMobileMenu] = useState({ left: false });
@@ -25,8 +25,8 @@ function Header() {
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
@@ -36,9 +36,9 @@ function Header() {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250,
       }}
-      role="presentation"
+      role='presentation'
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
@@ -55,8 +55,7 @@ function Header() {
                 {index === 1 && <FeaturedPlayListIcon />}
                 {index === 2 && <MiscellaneousServicesIcon />}
                 {index === 3 && <ContactsIcon />}
-                {index === 4 && <FeaturedPlayListIcon />}
-                {index === 5 && <ContactsIcon />}
+                {index === 4 && <ContactsIcon />}
                 {/* Add more icons as needed */}
               </ListItemIcon>
               <ListItemText primary={item.display} />
@@ -69,105 +68,103 @@ function Header() {
 
   const nav_titles = [
     {
-      path: "/",
-      display: "Home",
+      path: '/',
+      display: 'Home',
     },
     {
-      path: "/about",
-      display: "About",
+      path: '/about',
+      display: 'About',
     },
     {
-      path: "/services",
-      display: "Services",
+      path: '/services',
+      display: 'Services',
     },
     {
-      path: "/doctors",
-      display: "Doctors",
+      path: '/testimonials',
+      display: 'Testimonials',
     },
     {
-      path: "/blogs",
-      display: "Blogs",
-    },
-    {
-      path: "/contact",
-      display: "Contact",
+      path: '/contact',
+      display: 'Contact',
     },
   ];
 
   const NavBarLinkBox = styled(Box)(({ theme }) => ({
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: theme.spacing(8),
-    [theme.breakpoints.down("md")]: {
-      display: "none",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.spacing(10),
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
     },
   }));
 
   const NavBarLink = styled(Typography)(({}) => ({
-    fontSize: "21px",
-    color: "#632D8A",
-    fontWeight: "bold",
-    cursor: "pointer",
-    "&:hover": {
-      color: " #40B24E",
+    fontSize: '21px',
+    color: '#5c994d',
+    fontWeight: 'bold',
+    cursor: 'pointer',
+    '&:hover': {
+      color: ' #464d42',
     },
   }));
 
-  const NavBarLogo = styled("img")(({ theme }) => ({
-    cursor: "pointer",
-    [theme.breakpoints.down("md")]: {
-      display: "none",
+  const NavBarLogo = styled('img')(({ theme }) => ({
+    cursor: 'pointer',
+    maxWidth: '100px', // Adjust the maximum width of the logo image
+    height: 'auto', // Ensure the height adjusts proportionally
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
     },
   }));
 
   const CustomMenuIcon = styled(MenuIcon)(({ theme }) => ({
-    cursor: "pointer",
-    display: "none",
+    cursor: 'pointer',
+    display: 'none',
     marginRight: theme.spacing(2),
-    [theme.breakpoints.down("md")]: {
-      display: "block",
+    [theme.breakpoints.down('md')]: {
+      display: 'block',
     },
   }));
 
   return (
     <Box
       sx={{
-        position: "sticky",
+        position: 'sticky',
         top: 0,
-        backgroundColor: "#FFFFFF",
+        backgroundColor: '#FFFFFF',
         zIndex: 1000, // Ensure the navbar stays above other content
-        boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Optional: Add shadow for better visibility
+        boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', // Optional: Add shadow for better visibility
       }}
     >
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "16px 40px", // Adjust padding as needed
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '16px 40px', // Adjust padding as needed
         }}
       >
         <Box
           sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "2.5rem",
+            display: 'flex',
+            alignItems: 'center',
+            gap: '2.5rem',
           }}
         >
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
-            <CustomMenuIcon onClick={toggleDrawer("left", true)} />
+            <CustomMenuIcon onClick={toggleDrawer('left', true)} />
             <Drawer
-              anchor="left"
-              open={mobileMenu["left"]}
-              onClose={toggleDrawer("left", false)}
+              anchor='left'
+              open={mobileMenu['left']}
+              onClose={toggleDrawer('left', false)}
             >
-              {list("left")}
+              {list('left')}
             </Drawer>
             <NavBarLogo src={logoImg} />
           </Box>
@@ -175,7 +172,7 @@ function Header() {
             {nav_titles.map((item, index) => (
               <NavBarLink
                 key={index}
-                variant="body2"
+                variant='body2'
                 onClick={() => navigate(item.path)}
               >
                 {item.display}
@@ -186,15 +183,15 @@ function Header() {
 
         <Box
           sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: "1rem",
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1rem',
           }}
         >
           <CustomButton
-            backgroundColor="#000000"
-            color="#fff"
-            buttonText="+91 9123456789"
+            backgroundColor='#5c994d'
+            color='#fff'
+            buttonText='+91 9123456789'
           />
         </Box>
       </Box>

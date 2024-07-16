@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Box, Typography, TextField, Button } from '@mui/material';
-import bookingimg from '../../assets/Bookingimg.png';
+import bookingimg from '../../assets/book111.png';
 import emailjs from '@emailjs/browser'; // Importing emailjs-com instead of @emailjs/browser
 
 const ContactSection = () => {
@@ -49,7 +49,7 @@ const ContactSection = () => {
             marginBottom: '20px',
           }}
         >
-          Make An <span style={{ color: '#40B24E' }}>Appointment</span>
+          Start Your <span style={{ color: '#40B24E' }}>Weight Loss</span> Journey
         </Typography>
         <form ref={form} onSubmit={sendEmail}>
           {/* Name */}
@@ -103,8 +103,8 @@ const ContactSection = () => {
       {/* Image Box */}
       <Box
         sx={{
-          width: '100%',
-          maxWidth: '600px',
+          width: '90%',
+          maxWidth: '500px',
           backgroundColor: '#fff',
           padding: '30px',
           display: 'flex',
@@ -115,7 +115,7 @@ const ContactSection = () => {
         <img
           src={bookingimg}
           alt="Placeholder Image"
-          style={{ width: '100%', maxWidth: '500px', marginBottom: '20px' }}
+          style={{ width: '100%', maxWidth: '600px', marginBottom: '20px' }}
         />
       </Box>
     </Box>

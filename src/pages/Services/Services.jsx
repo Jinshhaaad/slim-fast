@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, styled } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserMd } from '@fortawesome/free-solid-svg-icons';
+import { faHandHoldingHeart, faLeaf, faAppleAlt } from '@fortawesome/free-solid-svg-icons'; // Different icons for each service
 
 const CustomBox = styled(Box)(({ theme }) => ({
   width: '30%',
@@ -28,8 +28,11 @@ const RowContainer = styled(Box)(({ theme }) => ({
 }));
 
 const Card = styled(Box)(({ theme }) => ({
-  flex: '1 1 30%', // Adjust width of each card
-  backgroundColor: '#CEB7DF',
+  width: '100%', // Full width on smaller screens
+  maxWidth: '400px', // Maximum width of the card
+  height: '100%', // Adjust height as needed
+  minHeight: '400px', // Set minimum height to ensure cards are all the same height
+  backgroundColor: '#5c994d',
   borderRadius: '12px', // Square shape with rounded corners
   padding: theme.spacing(4),
   textAlign: 'center',
@@ -48,13 +51,22 @@ const Card = styled(Box)(({ theme }) => ({
 
 const IconWrapper = styled(Box)(({ theme }) => ({
   position: 'absolute',
-  top: '-20px',
+  top: '20px', // Adjust top positioning as needed
   left: '50%',
   transform: 'translateX(-50%)',
   backgroundColor: '#FFFFFF',
-  padding: theme.spacing(1),
+  padding: theme.spacing(2), // Increased padding for better visual balance
   borderRadius: '50%',
   boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.1)',
+}));
+
+const Icon = styled(FontAwesomeIcon)(({ theme }) => ({
+  color: '#5c994d',
+  fontSize: '5rem', // Adjust icon size
+}));
+
+const TextWrapper = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(2), // Add spacing between icon and text
 }));
 
 function Services() {
@@ -65,85 +77,72 @@ function Services() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '40px',
-        mt: '40px',
+        padding: '80px',
+        mt: '20px',
         mb: '10px',
       }}
     >
-      <Typography
-        variant='h3'
-        sx={{
-          fontSize: '2rem',
-          color: '#000000',
-          textAlign: 'center',
-          my: 3,
-        }}
-      >
-        Our Services
-      </Typography>
       <CustomBox>
         <Typography
           variant='body2'
           sx={{
             fontSize: '2.5rem',
             fontWeight: 'bold',
-            color: '#000000',
+            color: '#464d42', // Change text color to white
             textAlign: 'center',
           }}
         >
-          Our <span style={{ color: '#40B24E' }}>Patients</span> Services
+          Our <span style={{ color: '#5c994d' }}>Services</span> 
         </Typography>
       </CustomBox>
 
+     
+
       <CardsContainer>
-        {/* Row with all cards */}
         <RowContainer>
-          {/* Card 1 */}
+          {/* Card 1 - Personalized Diet Plans */}
           <Card>
             <IconWrapper>
-              <FontAwesomeIcon icon={faUserMd} size="2x" style={{ color: '#632D8A' }} />
+              <Icon icon={faHandHoldingHeart} />
             </IconWrapper>
-            <Typography variant='h5' sx={{ color: '#000000', mb: 2, pt: 4 }}>
-              Unani
-            </Typography>
-            <Typography variant='body1' sx={{ textAlign: 'justify' }}>
-            "Discover the gentle and holistic healing approach of Unani medicine. Unani focuses on restoring balance and promoting natural healing. Using herbal remedies, dietary adjustments, and therapeutic practices, Unani offers personalized treatments for various ailments, emphasizing overall well-being and harmony within the body."            </Typography>
+            <TextWrapper>
+              <Typography variant='h5' sx={{ color: '#FFFFFF', pt: 15 , fontWeight: 'bold',}}>
+                Personalized Diet Plans
+              </Typography>
+              <Typography variant='body1' sx={{ color: '#FFFFFF', textAlign: 'justify',pt:3 }}>
+                Receive a customized diet plan created by our certified nutritionists to suit your specific health goals and dietary preferences.
+              </Typography>
+            </TextWrapper>
           </Card>
 
-          {/* Card 2 */}
+          {/* Card 2 - Expert Nutrition Advice */}
           <Card>
             <IconWrapper>
-              <FontAwesomeIcon icon={faUserMd} size="2x" style={{ color: '#632D8A' }} />
+              <Icon icon={faAppleAlt} />
             </IconWrapper>
-            <Typography variant='h5' sx={{ color: '#000000', mb: 2, pt: 4 }}>
-              Homeopathy
-            </Typography>
-            <Typography variant='body1' sx={{ textAlign: 'justify' }}>
-            "Experience gentle and natural healing with our homeopathic services. Using diluted natural substances to stimulate the body's innate healing abilities, homeopathy offers personalized treatments for a wide range of health concerns, promoting holistic well-being and restoring balance."            </Typography>
+            <TextWrapper>
+              <Typography variant='h5' sx={{ color: '#FFFFFF', pt: 15 , fontWeight: 'bold',}}>
+                Expert Nutrition Advice
+              </Typography>
+              <Typography variant='body1' sx={{ color: '#FFFFFF', textAlign: 'justify',pt:3 }}>
+                Benefit from the latest nutrition research and expert advice to ensure your diet is both effective and sustainable.
+              </Typography>
+            </TextWrapper>
           </Card>
 
-          {/* Card 3 */}
+          {/* Card 3 - 100% Satisfaction Guarantee */}
           <Card>
             <IconWrapper>
-              <FontAwesomeIcon icon={faUserMd} size="2x" style={{ color: '#632D8A' }} />
+              <Icon icon={faLeaf} />
             </IconWrapper>
-            <Typography variant='h5' sx={{ color: '#000000', mb: 2, pt: 4 }}>
-              Ayurveda
-            </Typography>
-            <Typography variant='body1' sx={{ textAlign: 'justify' }}>
-            "Discover ancient healing wisdom with our Ayurveda services. From personalized consultations and rejuvenating massages to herbal therapies and lifestyle guidance, our treatments promote holistic well-being, balance, and vitality."            </Typography>
-          </Card>
-
-          {/* Card 4 */}
-          <Card>
-            <IconWrapper>
-              <FontAwesomeIcon icon={faUserMd} size="2x" style={{ color: '#632D8A' }} />
-            </IconWrapper>
-            <Typography variant='h5' sx={{ color: '#000000', mb: 2, pt: 4 }}>
-              Naturopathy
-            </Typography>
-            <Typography variant='body1' sx={{ textAlign: 'justify' }}>
-            "Discover natural healing with naturopathy, a holistic healthcare approach that utilizes natural therapies like herbal medicine, nutrition counseling, and lifestyle adjustments to support the body's self-healing mechanisms and promote overall well-being."                    </Typography>
+            <TextWrapper>
+              <Typography variant='h5' sx={{ color: '#FFFFFF', pt: 15 , fontWeight: 'bold',}}>
+                100% Satisfaction Guarantee
+              </Typography>
+              <Typography variant='body1' sx={{ color: '#FFFFFF', textAlign: 'justify' ,pt:3}}>
+                We are confident in our ability to help you achieve your goals. If you don't see any changes after 1 month, we'll give you a full refund.
+              </Typography>
+            </TextWrapper>
           </Card>
         </RowContainer>
       </CardsContainer>

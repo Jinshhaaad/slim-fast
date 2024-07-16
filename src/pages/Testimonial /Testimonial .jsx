@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography, styled, Avatar } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
-import person from "../../assets/image1.png";
+// import person from "../../assets/image1.png";
 
 const TestimonialItem = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -43,18 +43,19 @@ const TestimonialsContainer = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'flex-start',
   flexWrap: 'wrap',
+  pt:5,
   gap: theme.spacing(3), // Add some gap between testimonial items
   justifyContent: 'center', // Center align items horizontally
 }));
 
 const Testimonial = ({ rating, text, author, sx }) => {
   // Generate a dummy image URL for the avatar
-  const avatarUrl = person;
+  // const avatarUrl = person;
 
   return (
     <TestimonialItem sx={{ ...sx }}>
       <Box position="absolute" top={theme => theme.spacing(2)} left={theme => theme.spacing(2)}>
-        <Avatar src={avatarUrl} sx={{ width: 80, height: 80 }} />
+        {/* <Avatar src={avatarUrl} sx={{ width: 80, height: 80 }} /> */}
       </Box>
       <RatingStars rating={rating} />
       <Typography variant="body1" sx={{ mb: 1 }}>
@@ -76,7 +77,7 @@ function Testimonials() {
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '70vh', // Adjusted minHeight for better visibility
-        backgroundColor: '#F0F0F0',
+        backgroundColor: '#E0EDE5',
         padding: '10px',
       }}
     >
@@ -107,15 +108,15 @@ function Testimonials() {
       <TestimonialsContainer>
         <Testimonial
           rating={5}
-          text="Q1B Health Care is our lifeline. Expert staff, reassuring visits, and a commitment to excellence make them our trusted healthcare partner in the community."
+          text=  "The support and guidance from Slim Fast team were incredible. I've achieved my weight loss goals faster than I thought!"
           author="Neha S"
-          sx={{ backgroundColor: '#CEB7DF', color: '#333333' }} // Custom background color and text color for this testimonial
+          sx={{ backgroundColor: '#5F8575', color: '#FFFFFF' }} // Custom background color and text color for this testimonial
         />
         <Testimonial
           rating={5}
-          text="Q1B Health Care is our cornerstone in healthcare, providing expert staff, reassuring visits, and a steadfast commitment to excellence that solidifies their role as our trusted healthcare partner in the community."
+          text="Slim Fast has changed my life! I've never felt healthier and more energetic. Highly recommend! The program's simplicity and effectiveness have truly exceeded my expectations."
           author="Jinshad P"
-          sx={{ backgroundColor: '#652DC1', color: '#FFFFFF' }} // Custom background color and text color for this testimonial
+          sx={{ backgroundColor: '#5b974d', color: '#FFFFFF' }} // Custom background color and text color for this testimonial
         />
         {/* Add more Testimonial components with different background colors as needed */}
       </TestimonialsContainer>
