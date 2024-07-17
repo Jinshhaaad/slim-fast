@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/slim-fast/static/css/main.7521ed2e.css",
+    "main.js": "/slim-fast/static/js/main.898ccda6.js",
+    "static/js/453.1488b8e7.chunk.js": "/slim-fast/static/js/453.1488b8e7.chunk.js",
+    "static/media/home000.jpg": "/slim-fast/static/media/home000.e08537d6963f355098b5.jpg",
+    "static/media/about33.png": "/slim-fast/static/media/about33.62f0ed534ceaf9fea9eb.png",
+    "static/media/about222.png": "/slim-fast/static/media/about222.d3c91eaa01ef5a264aec.png",
+    "static/media/book111.png": "/slim-fast/static/media/book111.66e933b76e0cb77f33aa.png",
+    "static/media/logoslimfast-removebg-preview.png": "/slim-fast/static/media/logoslimfast-removebg-preview.9476059270b736dc5337.png",
+    "index.html": "/slim-fast/index.html",
+    "main.7521ed2e.css.map": "/slim-fast/static/css/main.7521ed2e.css.map",
+    "main.898ccda6.js.map": "/slim-fast/static/js/main.898ccda6.js.map",
+    "453.1488b8e7.chunk.js.map": "/slim-fast/static/js/453.1488b8e7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7521ed2e.css",
+    "static/js/main.898ccda6.js"
+  ]
+}
