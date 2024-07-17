@@ -105,7 +105,7 @@ function Header() {
     fontWeight: 'bold',
     cursor: 'pointer',
     '&:hover': {
-      color: ' #464d42',
+      color: '#464d42',
     },
   }));
 
